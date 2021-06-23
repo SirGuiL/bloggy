@@ -12,6 +12,7 @@
   "author": "Guilherme Lima de Souza - guibiel-10@hotmail.com",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sucrase": "^3.19.0"
   }
 }
