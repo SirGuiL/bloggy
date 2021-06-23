@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "name": "bloggy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SirGuiL/bloggy",
+  "author": "Guilherme Lima de Souza - guibiel-10@hotmail.com",
+  "license": "MIT"
+}
