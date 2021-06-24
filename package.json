@@ -4,7 +4,7 @@
   },
   "name": "bloggy",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon src/server.js"
   },
   "version": "1.0.0",
   "main": "index.js",
