@@ -1,9 +1,8 @@
 import express from 'express'
+import { storeUser } from './controller/UserController'
 
 const routes = express.Router()
 
-routes.get('/', (request, response) => {
-  response.status(201).json({ message: 'Hello world!' })
-})
+routes.post('/users', storeUser)
 
 export default routes
