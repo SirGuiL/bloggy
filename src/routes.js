@@ -1,8 +1,8 @@
 import express from 'express'
-import { storeUser } from './controller/UserController'
+import UserController from './controller/UserController'
 
 const routes = express.Router()
 
-routes.post('/users', storeUser)
+routes.post('/users', UserController.store)
 
 export default routes
