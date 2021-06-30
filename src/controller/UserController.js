@@ -25,7 +25,36 @@ class UserController {
     return response.status(201).json(user)
   }
 
-  async update(request, response) {}
+  async update(request, response) {
+    const { name, email, oldPassword, password, bio, avatar } = request.body
+
+    const user = await User.findOne({ _id: request.userId })
+
+    if (!user) {
+      return response.status(404).json({ error: 'User not found.' })
+    }
+
+    if (oldPassword) {
+      if (password != user.password) {
+        return response
+          .status(400)
+          .json({ error: 'Old password does not match.' })
+      }
+    }
+
+    user.name = name
+    user.email = email
+    user.bio = bio
+    user.avatar = avatar
+
+    user.save()
+
+    const { id, createdAt, updateAt } = user
+
+    return response
+      .status(201)
+      .json({ id, name, email, bio, avatar, createdAt, updateAt })
+  }
 }
 
 export default new UserController()
