@@ -55,6 +55,18 @@ class UserController {
       .status(201)
       .json({ id, name, email, bio, avatar, createdAt, updateAt })
   }
+
+  async delete(request, response) {
+    const user = await User.findOne({ _id: request.userId })
+
+    if (!user) {
+      return response.status(404).json({ error: 'User not found.' })
+    }
+
+    await User.deleteOne({ _id: request.userId })
+
+    return response.status(200).json({ message: 'User deleted successfully.' })
+  }
 }
 
 export default new UserController()
