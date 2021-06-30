@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { promisify } from 'util'
 
-export default async (request, response) => {
+export default async (request, response, next) => {
   const authHeader = request.headers.authorization
 
   if (!authHeader) {

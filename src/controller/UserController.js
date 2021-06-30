@@ -35,7 +35,7 @@ class UserController {
     }
 
     if (oldPassword) {
-      if (password != user.password) {
+      if (oldPassword != user.password) {
         return response
           .status(400)
           .json({ error: 'Old password does not match.' })
