@@ -61,6 +61,25 @@ class PostController {
       return response.status(404).json({ error: 'Post not found.' })
     }
   }
+
+  async update(request, response) {
+    try {
+      const { title, subtitle, tags, cover, content } = request.body
+      const post = await Post.findOne({ _id: request.params.postId })
+
+      post.title = title || post.title
+      post.subtitle = subtitle || post.subtitle
+      post.tags = tags || post.tags
+      post.cover = cover || post.cover
+      post.content = content || post.content
+
+      await post.save()
+
+      return response.status(200).json(post)
+    } catch (error) {
+      return response.status(404).json({ error: 'Post not found.' })
+    }
+  }
 }
 
 export default new PostController()
