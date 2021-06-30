@@ -13,8 +13,10 @@ routes.use(authMiddleware)
 
 routes.put('/users', UserController.update)
 routes.delete('/users', UserController.delete)
+
 routes.post('/posts', PostController.store)
 routes.get('/posts', PostController.index)
-routes.get('/posts/:userId', PostController.indexAll)
+routes.get('/:userId/posts', PostController.indexAll)
+routes.get('/posts/:postId', PostController.show)
 
 export default routes
