@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import routes from './routes'
+import cors from 'cors'
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ mongoose.connect(
   }
 )
 
+server.use(cors())
 server.use(express.json())
 server.use(routes)
 
