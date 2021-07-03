@@ -9,7 +9,9 @@
   },
   "name": "bloggy",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "version": "1.0.0",
   "main": "index.js",
